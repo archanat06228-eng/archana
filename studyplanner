@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class SmartStudyPlanner {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Subject> subjects = new ArrayList<>();
+
+        System.out.println("Enter number of subjects:");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEnter subject name:");
+            String name = sc.nextLine();
+
+            System.out.println("Enter difficulty (1-5):");
+            int difficulty = sc.nextInt();
+
+            System.out.println("Days left for exam:");
+            int daysLeft = sc.nextInt();
+            sc.nextLine();
+
+            subjects.add(new Subject(name, difficulty, daysLeft));
+        }
+
+        // Sort by priority (high → low)
+        subjects.sort((a, b) -> b.getPriority() - a.getPriority());
+
+        System.out.println("\n📅 Smart Study Plan:");
+        for (Subject s : subjects) {
+            System.out.println("Study: " + s.name + " | Priority: " + s.getPriority());
+        }
+    }
+}
