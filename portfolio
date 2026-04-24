@@ -1,0 +1,38 @@
+import { Navbar } from "@/components/portfolio/Navbar";
+import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
+import { Skills } from "@/components/portfolio/Skills";
+import { Projects } from "@/components/portfolio/Projects";
+import { Education } from "@/components/portfolio/Education";
+import { Certifications } from "@/components/portfolio/Certifications";
+import { Contact } from "@/components/portfolio/Contact";
+import { useEffect } from "react";
+
+const Index = () => {
+  useEffect(() => {
+    document.title = "Archana T — Software Developer · ML & Cybersecurity";
+    const desc = "Portfolio of Archana T, an aspiring software developer specializing in machine learning, cybersecurity, and REST API development with Python and Java.";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("name", "description");
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", desc);
+  }, []);
+
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Education />
+      <Certifications />
+      <Contact />
+    </main>
+  );
+};
+
+export default Index;
